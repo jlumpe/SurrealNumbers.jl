@@ -11,6 +11,7 @@ struct SurrealForm{L, R} <: Number
 	right::R
 end
 
+SurrealForm() = SurrealForm((), ())
 SurrealForm(f::SurrealForm) = f
 SurrealForm(x) = SurrealForm(left(x), right(x))
 
@@ -20,7 +21,7 @@ right(f::SurrealForm) = f.right
 issurreal(f::SurrealForm) = true
 
 
-Base.zero(::SurrealForm) = SurrealForm((), ())
+Base.zero(::SurrealForm) = SurrealForm()
 Base.one(::SurrealForm) = SurrealForm((0,), ())
 
 
