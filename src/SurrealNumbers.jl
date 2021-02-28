@@ -4,6 +4,7 @@ using DocStringExtensions
 
 
 export left, right, SurrealForm
+export issurreal, isordinal, generation
 
 
 include("api.jl")
