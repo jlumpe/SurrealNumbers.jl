@@ -15,6 +15,12 @@ SurrealForm() = SurrealForm((), ())
 SurrealForm(f::SurrealForm) = f
 SurrealForm(x) = SurrealForm(left(x), right(x))
 
+function SurrealForm(args...; check::Bool)
+	f = SurrealForm(args...)
+	check && check_numeric(f)
+	return f
+end
+
 
 left(f::SurrealForm) = f.left
 right(f::SurrealForm) = f.right
@@ -34,6 +40,8 @@ function isnumeric(f::SurrealForm{L, R}) where {L, R}
 	# TODO
 	error("Not implemented for generic forms")
 end
+
+checknumeric(f::SurrealForm) = isnumeric(f) || error("Form is not numeric")
 
 
 Base.show(io::IO, mime::Union{FORM_TEXT_MIMES...}, f::SurrealForm) = show_form_outer(io, mime, f)
