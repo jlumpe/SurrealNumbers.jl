@@ -28,7 +28,7 @@ issurreal(x::Complex) = isreal(x)
 
 Whether the number `x` is an ordinal number.
 """
-isordinal(x::Real) = isinteger(x) && x >= 0
+isordinal(x::Real) = isinteger(x) && x > 0
 
 
 """
