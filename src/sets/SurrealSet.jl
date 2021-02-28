@@ -5,6 +5,12 @@ Abstract type for a (possibly infinite) immutable set of surreal numbers.
 """
 abstract type SurrealSet{T} end
 
+SurrealSet(s::SurrealSet) = s
+SurrealSet(x::Number) = Singleton(x)
+SurrealSet(s) = hasmethod(iterate, Tuple{typeof(s)}) ? WrappedSurrealSet(s) : Singleton(x)
+SurrealSet() = EmptySurrealSet()
+
+
 Base.eltype(::SurrealSet{T}) where T = T
 
 
