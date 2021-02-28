@@ -1,5 +1,13 @@
 module SurrealNumbers
 
-# Write your package code here.
+using DocStringExtensions
+
+
+export left, right, SurrealForm
+
+
+include("api.jl")
+include("SurrealForm.jl")
+
 
 end

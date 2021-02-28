@@ -3,6 +3,9 @@ uuid = "26925f1b-925f-4501-bfe7-b95240cb9278"
 authors = ["Jared Lumpe"]
 version = "0.1.0"
 
+[deps]
+DocStringExtensions = "ffbed154-4ef7-542d-bbb7-c09d3a79fcae"
+
 [compat]
 julia = "1.3"
 
