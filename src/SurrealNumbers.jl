@@ -3,13 +3,13 @@ module SurrealNumbers
 using DocStringExtensions
 
 
-export left, right, SurrealForm, SurrealSet
+export Surreal, left, right, SurrealForm, SurrealSet
 export issurreal, isordinal, generation
 export ∅
 
 
 include("util.jl")
-include("api.jl")
+include("base.jl")
 include("sets/SurrealSet.jl")
 include("sets/subtypes.jl")
 include("show.jl")

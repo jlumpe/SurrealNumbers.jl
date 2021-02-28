@@ -6,7 +6,7 @@ A surreal number form with explicit left and right subsets.
 A (valid) form represents a specific surreal number, and so instances of this
 class behave as the number they represent.
 """
-struct SurrealForm{L<:SurrealSet, R<:SurrealSet} <: Number
+struct SurrealForm{L<:SurrealSet, R<:SurrealSet} <: Surreal
 	l::L
 	r::R
 
