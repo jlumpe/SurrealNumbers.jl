@@ -33,3 +33,6 @@ function isnumeric(f::SurrealForm{L, R}) where {L, R}
 	# TODO
 	error("Not implemented for generic forms")
 end
+
+
+Base.show(io::IO, mime::Union{FORM_TEXT_MIMES...}, f::SurrealForm) = show_form_outer(io, mime, f)
