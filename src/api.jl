@@ -19,5 +19,21 @@ function right end
 
 Whether the number `x` is a surreal number.
 """
-issurreal(::Number) = false
 issurreal(::Real) = true
+issurreal(x::Complex) = isreal(x)
+
+
+"""
+	isordinal(x::Number)::Bool
+
+Whether the number `x` is an ordinal number.
+"""
+isordinal(x::Real) = isinteger(x) && x >= 0
+
+
+"""
+	generation(x::Number)
+
+Get the generation of the surreal number `x`.
+"""
+function generation end
