@@ -1,5 +1,5 @@
 """
-	left(x)
+	left(x)::SurrealSet
 
 Get the left subset of the canonical surreal number form of `x`
 """
@@ -7,7 +7,7 @@ function left end
 
 
 """
-	right(x)
+	right(x)::SurrealSet
 
 Get the right subset of the canonical surreal number form of `x`
 """

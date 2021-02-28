@@ -6,13 +6,16 @@ A surreal number form with explicit left and right subsets.
 A (valid) form represents a specific surreal number, and so instances of this
 class behave as the number they represent.
 """
-struct SurrealForm{L, R} <: Number
-	left::L
-	right::R
+struct SurrealForm{L<:SurrealSet, R<:SurrealSet} <: Number
+	l::L
+	r::R
+
+	SurrealForm(l::SurrealSet, r::SurrealSet) = new{typeof(l), typeof(r)}(l, r)
 end
 
 SurrealForm() = SurrealForm((), ())
 SurrealForm(f::SurrealForm) = f
+SurrealForm(l, r) = SurrealForm(SurrealSet(l), SurrealSet(r))  # Convert arguments
 SurrealForm(x) = SurrealForm(left(x), right(x))
 
 function SurrealForm(args...; check::Bool)
@@ -22,8 +25,8 @@ function SurrealForm(args...; check::Bool)
 end
 
 
-left(f::SurrealForm) = f.left
-right(f::SurrealForm) = f.right
+left(f::SurrealForm) = f.l
+right(f::SurrealForm) = f.r
 issurreal(f::SurrealForm) = true
 
 
