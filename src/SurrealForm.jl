@@ -39,10 +39,7 @@ Base.one(::SurrealForm) = SurrealForm((0,), ())
 
 Whether the form is *numeric* - i.e. represents a valid surreal number.
 """
-function isnumeric(f::SurrealForm{L, R}) where {L, R}
-	# TODO
-	error("Not implemented for generic forms")
-end
+isnumeric(f::SurrealForm) = all_lt(left(f), right(f))
 
 checknumeric(f::SurrealForm) = isnumeric(f) || error("Form is not numeric")
 

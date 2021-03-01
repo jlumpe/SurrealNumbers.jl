@@ -1,5 +1,5 @@
 using SurrealNumbers: EmptySurrealSet, Singleton, WrappedSurrealSet
-using SurrealNumbers: issetfinite
+using SurrealNumbers: issetfinite, all_lt, all_lte
 
 
 @testset "Conversion" begin
@@ -55,4 +55,27 @@ end
 		@test eltype(w) == eltype(s)
 		@test issetequal(w, s)
 	end
+end
+
+
+@testset "Ordering" begin
+	s1 = SurrealSet(1:3)
+	s2 = SurrealSet(3:6)
+	s3 = SurrealSet(4:6)
+	s4 = SurrealSet(2:6)
+
+	@test !all_lt(s1, s2)
+	@test all_lte(s1, s2)
+	@test !all_lt(s2, s1)
+	@test !all_lte(s2, s1)
+
+	@test all_lt(s1, s3)
+	@test all_lte(s1, s3)
+	@test !all_lt(s3, s1)
+	@test !all_lte(s3, s1)
+
+	@test !all_lt(s1, s4)
+	@test !all_lte(s1, s4)
+	@test !all_lt(s4, s1)
+	@test !all_lte(s4, s1)
 end
